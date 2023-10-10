@@ -23,12 +23,17 @@ List<Meme> allMemeList = [
   Meme(
     name: "Ab Bol Na MC",
     fileName: "ab_bol_na_mc",
-    searchParams: "ab bol na madarchod mc baccha child",
+    searchParams: "ab bol na madarchod ab bol na mc baccha child",
   ),
   Meme(
     name: "Lottery",
     fileName: "abababa_lottery",
-    searchParams: "abababa lottery lotry",
+    searchParams: "abababa lottery abababa lotry",
+  ),
+  Meme(
+    name: "Amma Bhen Pe aa Jaunga",
+    fileName: "amma_bhen",
+    searchParams: "abu faisal amma bhen pe aa jaunga amma behen pe aa jaunga amma bhen pe aa jaaunga amma behen pe aa jaaunga ",
   ),
   Meme(
     name: "Asambhav BC",
@@ -59,6 +64,11 @@ List<Meme> allMemeList = [
         "modi behen ke lode behen ke laude behen ke loude behen ke lavde bhen ke lode bhen ke laude bhen ke loude bhen ke lavde bkl",
   ),
   Meme(
+    name: "Kya Re Bhikmangya?",
+    fileName: "bhikmangya",
+    searchParams: "deepak kalal dk kya re bhikmangya kya be bhikmangya",
+  ),
+  Meme(
     name: "R2H - BSDK",
     fileName: "bhosssdike",
     searchParams: "round 2 hell desert dessert bhosadike bsdk",
@@ -83,6 +93,11 @@ List<Meme> allMemeList = [
     name: "Conjajulations",
     fileName: "conjajulation_brother",
     searchParams: "conajajulations brother conajajulation congratulations",
+  ),
+  Meme(
+    name: "Elvish Bhaai",
+    fileName: "elvish_bhai",
+    searchParams: "are elvish bhai ke aage koi bol sakta hai kya aaeeeee elvish bhaaai",
   ),
   Meme(
     name: "Emotional Damage",
@@ -258,6 +273,11 @@ List<Meme> allMemeList = [
     fileName: "thoda_busy",
     searchParams:
         'hindustani bhau hindustaani bhau thoda mai kaam me asia busy ho gaya tha na thoda mai aisa kaam me busy ho gaya thana',
+  ),
+  Meme(
+    name: "Tum Dono Ki MKC",
+    fileName: "tum_dono_ki_mkc",
+    searchParams: "oggy and the cockroaches dee dee paplu tum dono ki maa ki chut tum dono ki mkc tum dono ki maa ki choot",
   ),
 ];
 

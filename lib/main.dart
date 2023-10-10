@@ -135,6 +135,14 @@ class _SoundPageState extends State<SoundPage> {
                   fileName: "system_faad_denge",
                 ),
                 memeAudioButton(
+                  buttonName: "Amma Bhen pe aa Jaunga",
+                  fileName: "amma_bhen",
+                ),
+                memeAudioButton(
+                  buttonName: "Tum dono ki MKC",
+                  fileName: "tum_dono_ki_mkc",
+                ),
+                memeAudioButton(
                   buttonName: "Chal Bosadike",
                   fileName: "chal_bhosadike",
                 ),
@@ -219,6 +227,10 @@ class _SoundPageState extends State<SoundPage> {
                   fileName: "mahesh_dalle",
                 ),
                 memeAudioButton(
+                  buttonName: "ELvish Bhaai",
+                  fileName: "elvish_bhai",
+                ),
+                memeAudioButton(
                   buttonName: "Kaise Kaise Log",
                   fileName: "kaise_kaise_log",
                 ),
@@ -261,6 +273,10 @@ class _SoundPageState extends State<SoundPage> {
                 memeAudioButton(
                   buttonName: "Sharam Karo",
                   fileName: "sharam_dk",
+                ),
+                memeAudioButton(
+                  buttonName: "Kya Re Bhikmangya?",
+                  fileName: "bhikmangya",
                 ),
                 memeAudioButton(
                   buttonName: "Pagal Aurat",
