@@ -6,23 +6,14 @@ import 'package:meme_soundpad/search_page.dart';
 
 import 'meme_lib.dart';
 
-void main() {
-  runApp(
-    const MaterialApp(
-      home: SoundPage(),
-      debugShowCheckedModeBanner: false,
-    ),
-  );
-}
-
-class SoundPage extends StatefulWidget {
-  const SoundPage({super.key});
+class TempHome extends StatefulWidget {
+  const TempHome({super.key});
 
   @override
-  State<SoundPage> createState() => _SoundPageState();
+  State<TempHome> createState() => _TempHomeState();
 }
 
-class _SoundPageState extends State<SoundPage> {
+class _TempHomeState extends State<TempHome> {
   late AudioPlayer player;
   var sortedMemeList = [...allMemeList];
   int currDoubleID = 127;
@@ -204,44 +195,6 @@ class _SoundPageState extends State<SoundPage> {
           fileName: fileNames[1],
         ))
       ],
-    );
-  }
-
-  Widget moreComingButton() {
-    return Padding(
-      padding: const EdgeInsets.fromLTRB(8.0, 8.0, 10.0, 10.0),
-      child: Container(
-        decoration: BoxDecoration(
-          color: Colors.grey[800],
-          borderRadius: BorderRadius.circular(20),
-          boxShadow: [
-            BoxShadow(
-              offset: const Offset(4.0, 4.0),
-              color: Colors.grey.shade700,
-            ),
-          ],
-        ),
-        child: const Align(
-          alignment: Alignment.center,
-          child: Padding(
-            padding: EdgeInsets.all(5.0),
-            child: Text(
-              "More Meme Templates Coming Soon!",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontWeight: FontWeight.w800,
-                fontSize: 18,
-                color: Colors.white,
-                shadows: [
-                  Shadow(
-                    offset: Offset(1.0, 2.0),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ),
-      ),
     );
   }
 }
