@@ -73,7 +73,7 @@ List<Meme> allMemeList = [
   ),
   Meme(
     name: "Bheek Maangne ka Tareeka",
-    fileName: "bacche_teri",
+    fileName: "bheek_maange",
     searchParams:
         "golmaal arshad waarsi ye bhi koi tareeka hua bheek maangne ka bheek maange ka tareeka",
     priorityID: 22,
