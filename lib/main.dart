@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:meme_soundpad/search_page.dart';
+import 'package:perfect_volume_control/perfect_volume_control.dart';
 
 import 'meme_lib.dart';
 
@@ -24,6 +25,7 @@ class SoundPage extends StatefulWidget {
 
 class _SoundPageState extends State<SoundPage> {
   late AudioPlayer player;
+  double currentvol = 0.5;
 
   @override
   void initState() {
@@ -32,7 +34,18 @@ class _SoundPageState extends State<SoundPage> {
     player.setAsset("assets/audio/intro.mp3");
     player.setVolume(sqrt(10));
     player.play();
-    print("Hello");
+    Future.delayed(Duration.zero, () async {
+      currentvol = await PerfectVolumeControl.getVolume();
+    });
+    PerfectVolumeControl.stream.listen((volume) {
+      if (volume != currentvol) {
+        //only execute button type check once time
+        player.stop();
+      }
+      setState(() {
+        currentvol = volume;
+      });
+    });
   }
 
   @override
