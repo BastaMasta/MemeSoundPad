@@ -107,7 +107,7 @@ List<Meme> allMemeList = [
   Meme(
     name: "Chal Bosadike",
     fileName: "chal_bhosadike",
-    searchParams: "car chal bhosadike chal bsdk",
+    searchParams: "car chal bhosadike chal bsdk chal bhosdike",
     priorityID: 11,
   ),
   Meme(
