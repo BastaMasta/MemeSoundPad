@@ -32,6 +32,7 @@ class _SoundPageState extends State<SoundPage> {
     player.setAsset("assets/audio/intro.mp3");
     player.setVolume(sqrt(10));
     player.play();
+    print("Hello");
   }
 
   @override
@@ -304,13 +305,112 @@ class _SoundPageState extends State<SoundPage> {
     );
   }
 
+  Widget baseMemeAudioButton(
+      {required String buttonName, required String fileName, int state = 0}) {
+    if (state == 0) {
+      return TextButton(
+        onPressed: () async {
+          await player.setAsset('assets/audio/$fileName.mp3');
+          await player.setVolume(sqrt(10));
+          player.play();
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: Colors.black,
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  fit: BoxFit.cover,
+                  image: AssetImage("assets/images/$fileName.png"),
+                  opacity: const AlwaysStoppedAnimation(.5),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(
+                    buttonName,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 18,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(1.0, 2.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    } else {
+      return TextButton(
+        onPressed: () async {
+          player.stop();
+          setState(() {});
+        },
+        child: Container(
+          decoration: const BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20)),
+            color: Colors.black,
+          ),
+          child: Stack(
+            fit: StackFit.expand,
+            children: <Widget>[
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  fit: BoxFit.cover,
+                  image: AssetImage("assets/images/$fileName.png"),
+                  opacity: const AlwaysStoppedAnimation(.5),
+                ),
+              ),
+              Align(
+                alignment: Alignment.center,
+                child: Padding(
+                  padding: const EdgeInsets.all(2.0),
+                  child: Text(
+                    buttonName,
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 18,
+                      color: Colors.white,
+                      shadows: [
+                        Shadow(
+                          offset: Offset(1.0, 2.0),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
+  }
+
   Widget memeAudioButton(
       {required String buttonName, required String fileName}) {
     return TextButton(
       onPressed: () async {
         await player.setAsset('assets/audio/$fileName.mp3');
         await player.setVolume(sqrt(10));
-        player.play();
+        await player.play();
+        print("Hello");
       },
       child: Container(
         decoration: const BoxDecoration(
