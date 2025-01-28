@@ -78,7 +78,7 @@ class _SoundPageState extends State<SoundPage> {
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Color(0xff1B262C),
+                  color: Color(0xffffffff),
                 ),
                 child: IconButton(
                     onPressed: () {
@@ -91,6 +91,11 @@ class _SoundPageState extends State<SoundPage> {
         ),
         backgroundColor: const Color(0xff152744),
         title: const Text("Meme SoundPad"),
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w800,
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.zero,
@@ -105,6 +110,7 @@ class _SoundPageState extends State<SoundPage> {
               }
             },
             icon: const Icon(Icons.stop),
+            color: Colors.white,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 4.0, 15.0, 4.0),
@@ -116,6 +122,7 @@ class _SoundPageState extends State<SoundPage> {
                 );
               },
               icon: const Icon(Icons.search),
+              color: Colors.white,
             ),
           )
         ],

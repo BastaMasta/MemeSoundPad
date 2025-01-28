@@ -55,7 +55,7 @@ class _SearchPageState extends State<SearchPage> {
               Icon(
                 Icons.search,
                 size: 100.0,
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withValues(alpha: .5),
               ),
               const Center(
                 child: Align(
@@ -91,7 +91,7 @@ class _SearchPageState extends State<SearchPage> {
               Icon(
                 Icons.crisis_alert,
                 size: 100.0,
-                color: Colors.grey.withOpacity(0.5),
+                color: Colors.grey.withValues(alpha: .5),
               ),
               const Center(
                 child: Align(
@@ -204,7 +204,7 @@ class _SearchPageState extends State<SearchPage> {
               child: Container(
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
-                  color: Color(0xff1B262C),
+                  color: Color(0xffffffff),
                 ),
                 child: IconButton(
                     onPressed: () {
@@ -217,6 +217,11 @@ class _SearchPageState extends State<SearchPage> {
         ),
         backgroundColor: const Color(0xff152744),
         title: const Text("Meme SoundPad"),
+        titleTextStyle: TextStyle(
+          color: Colors.white,
+          fontSize: 20,
+          fontWeight: FontWeight.w800,
+        ),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
             top: Radius.zero,
@@ -231,6 +236,7 @@ class _SearchPageState extends State<SearchPage> {
               }
             },
             icon: const Icon(Icons.stop),
+            color: Colors.white,
           ),
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 4.0, 15.0, 4.0),
@@ -239,6 +245,7 @@ class _SearchPageState extends State<SearchPage> {
                 Navigator.pop(context);
               },
               icon: const Icon(Icons.close),
+              color: Colors.white,
             ),
           )
         ],
@@ -248,7 +255,7 @@ class _SearchPageState extends State<SearchPage> {
           children: [
             Container(
               decoration: BoxDecoration(
-                  color: Colors.grey.withOpacity(0.5),
+                  color: Colors.grey.withValues(alpha: .5),
                   borderRadius: BorderRadius.circular(20.0)),
               child: Row(
                 children: [
