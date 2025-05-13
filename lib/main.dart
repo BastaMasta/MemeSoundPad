@@ -1,18 +1,50 @@
+import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:meme_soundpad/search_page.dart';
-
+import 'package:path_provider/path_provider.dart';
 import 'meme_lib.dart';
+import 'package:permission_handler/permission_handler.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+void main() async {
+  // Ensure Flutter is initialized
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // Initialize Firebase - like opening the secure line to headquarters
+  await Firebase.initializeApp();
+
   runApp(
     const MaterialApp(
       home: SoundPage(),
       debugShowCheckedModeBanner: false,
     ),
   );
+}
+
+// File IO
+
+class Filer {
+  Future<String> get _localPath async {
+    final directory = await getApplicationDocumentsDirectory();
+    return directory.path;
+  }
+
+  Future<File> get _localFile async {
+    final path = await _localPath;
+    return File('$path/memedb.json');
+  }
+
+  Future<File> writeCounter(int counter) async {
+    final file = await _localFile;
+    // Write the file
+    return file.writeAsString('$counter');
+  }
 }
 
 class SoundPage extends StatefulWidget {
@@ -27,6 +59,9 @@ class _SoundPageState extends State<SoundPage> {
   var sortedMemeList = [...allMemeList];
   int currDoubleID = 127;
   List<Widget> memeWidgets = [];
+  // List to store json data
+  List<Map<String, dynamic>> items = [];
+  bool isLoading = true;
 
   @override
   void initState() {
@@ -58,6 +93,45 @@ class _SoundPageState extends State<SoundPage> {
       }
     }
     player.play();
+  }
+
+  // Fetch data method - like sending a runner to the filing cabinet
+  Future<void> fetchData() async {
+    try {
+      // Access the "items" collection (drawer) in our Firestore filing cabinet
+      final snapshot =
+          await FirebaseFirestore.instance.collection('items').get();
+
+      // Convert each document to a map and add to our list
+      final fetchedItems = snapshot.docs.map((doc) => doc.data()).toList();
+
+      setState(() {
+        items = fetchedItems;
+        isLoading = false;
+      });
+
+      // Optional: Save the JSON locally for offline access
+      await saveJsonLocally(fetchedItems);
+    } catch (e) {
+      setState(() {
+        isLoading = false;
+      });
+      print('Error fetching data: $e');
+    }
+  }
+
+  // Save JSON data locally - like making a photocopy of the files
+  Future<void> saveJsonLocally(List<Map<String, dynamic>> data) async {
+    try {
+      final directory = await getApplicationDocumentsDirectory();
+      final file = File('${directory.path}/items_data.json');
+
+      // Convert list to JSON string and write to file
+      await file.writeAsString(jsonEncode(data));
+      print('JSON data saved locally at: ${file.path}');
+    } catch (e) {
+      print('Error saving JSON locally: $e');
+    }
   }
 
   @override

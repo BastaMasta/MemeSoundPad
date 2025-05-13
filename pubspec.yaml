@@ -14,7 +14,11 @@ dependencies:
   just_audio: ^0.9.34
   search_page: ^2.3.0
   firebase_core: ^3.10.1
+  path_provider: ^2.0.1
 
+  permission_handler: any
+  firebase_storage: any
+  cloud_firestore: any
 dev_dependencies:
   flutter_test:
     sdk: flutter

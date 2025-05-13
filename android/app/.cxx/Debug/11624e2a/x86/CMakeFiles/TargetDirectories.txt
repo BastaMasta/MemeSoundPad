@@ -1,0 +1,2 @@
+C:/Users/basta/Documents/GitHub/MemeSoundPad/android/app/.cxx/Debug/11624e2a/x86/CMakeFiles/edit_cache.dir
+C:/Users/basta/Documents/GitHub/MemeSoundPad/android/app/.cxx/Debug/11624e2a/x86/CMakeFiles/rebuild_cache.dir
